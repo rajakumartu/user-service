@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: UserAppDeployment
+spec:
+  selector:
+    matchLabels:
+      run: UserApp
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: UserApp
+    spec:
+      containers:
+      - name: UserApp
+        image: rajakumartu/user-service:1.0
+        ports:
+        - containerPort: 8090
+
